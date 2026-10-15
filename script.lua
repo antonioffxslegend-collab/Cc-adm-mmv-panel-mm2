@@ -850,7 +850,7 @@ SCRIPTS.sunsetCarpet=[==[
 -- Original Magic Carpet By Luckymaxer and Roblox
 -- Original Script Style By ttyyuu12345
 -- Open Source For Anyone to use
--- ✨ SUNSET EDITION — gradiente laranja→amarelo + trail branca ✨
+-- ✨ GOLDEN EDITION — carpet 100% dourado + trail branca ✨
 function sandbox(var,func)
         local env = getfenv(func)
         local newenv = setmetatable({},{
@@ -879,13 +879,13 @@ RF1 = Instance.new("RemoteFunction")
 RF2 = Instance.new("RemoteFunction")
 A1 = Instance.new("Animation")
 A2 = Instance.new("Animation")
-Tool0.Name = "SunsetMagicCarpet"
+Tool0.Name = "GoldenMagicCarpet"
 Tool0.Parent = mas
 Tool0.TextureId = ""
 Tool0.Grip = CFrame.new(-1.5, 0, 0, 1.91068547e-15, -4.37113883e-08, -1, -1, -4.37113883e-08, -0, -4.37113883e-08, 1, -4.37113883e-08)
 Part1.Name = "Handle"
 Part1.Size = Vector3.new(3, 0.5, 3.5)
-Part1.Color = Color3.fromRGB(255, 180, 50)
+Part1.Color = Color3.fromRGB(255, 215, 0)
 Part1.Material = Enum.Material.Neon
 Part1.Parent = Tool0
 Part1.Size = Vector3.new(1, 3.6000001430511475, 1)
@@ -935,12 +935,8 @@ CarpetPieces = {
 	{MeshId = 223079888, Angle = 100},
 	{MeshId = 223079981, Angle = 160},
 }
-CarpetColors = {
-	Color3.fromRGB(255, 80, 40),
-	Color3.fromRGB(255, 130, 45),
-	Color3.fromRGB(255, 180, 50),
-	Color3.fromRGB(255, 225, 90),
-}
+-- ✨ TAPETE 100% DOURADO
+local GOLD_COLOR = Color3.fromRGB(255, 215, 0)
 CarpetSize = Vector3.new(3, 0.5, 6.5)
 BaseUrl = "http://www.roblox.com/asset/?id="
 Rate = (1 / 10)
@@ -953,6 +949,7 @@ BasePart.FormFactor = Enum.FormFactor.Custom
 BasePart.Size = Vector3.new(0.2, 0.2, 0.2)
 BasePart.CanCollide = false
 BasePart.Locked = true
+-- ☁️ TRAIL BRANCA/CREME
 local TRAIL_COLOR = Color3.fromRGB(255, 250, 230)
 ColorPart = BasePart:Clone()
 ColorPart.Name = "ColorPart"
@@ -986,7 +983,8 @@ ColorLight.Shadows = false
 ColorLight.Enabled = true
 ColorLight.Color = Color3.fromRGB(255, 250, 230)
 ColorLight.Parent = ColorPart
-GoldenColors = {
+-- ☁️ Tons de trail branca/creme (simétrico)
+TrailColors = {
 	Vector3.new(1, 0.98, 0.88),
 	Vector3.new(1, 0.99, 0.92),
 	Vector3.new(1, 0.99, 0.95),
@@ -1061,7 +1059,7 @@ end
 function CreateRainbow(Length)
 	local RainbowModel = Instance.new("Model")
 	RainbowModel.Name = "TrailPart"
-	for i, v in pairs(GoldenColors) do
+	for i, v in pairs(TrailColors) do
 		local Part = ColorPart:Clone()
 		Part.Name = "Part"
 		Part.Size = Vector3.new(0.5, 0.5, Length)
@@ -1108,7 +1106,7 @@ function Activated()
 		local CarpetParts = {}
 		for i, v in pairs(CarpetPieces) do
 			local CarpetPart = BasePart:Clone()
-			CarpetPart.Color = CarpetColors[i] or CarpetColors[#CarpetColors]
+			CarpetPart.Color = GOLD_COLOR
 			CarpetPart.Material = Enum.Material.Neon
 			CarpetPart.Reflectance = 0.1
 			CarpetPart.CanCollide = false
@@ -1542,8 +1540,8 @@ local toggleStroke=Instance.new("UIStroke",toggle)
 toggleStroke.Color=PINK_DARK
 toggleStroke.Thickness=2
 local panel=Instance.new("Frame")
-panel.Size=UDim2.new(0,540,0,420)
-panel.Position=UDim2.new(0.5,-270,0.5,-210)
+panel.Size=UDim2.new(0,540,0,520)
+panel.Position=UDim2.new(0.5,-270,0.5,-260)
 panel.BackgroundColor3=WHITE
 panel.BorderSizePixel=0
 panel.Visible=false
@@ -1616,7 +1614,7 @@ closeBtn.ZIndex=4
 closeBtn.Parent=header
 Instance.new("UICorner",closeBtn).CornerRadius=UDim.new(1,0)
 local tabBar=Instance.new("Frame")
-tabBar.Size=UDim2.new(0,150,0,300)
+tabBar.Size=UDim2.new(0,150,0,340)
 tabBar.Position=UDim2.new(0,12,0,60)
 tabBar.BackgroundColor3=PINK_LIGHT
 tabBar.BackgroundTransparency=0.3
@@ -1631,7 +1629,7 @@ tabLayout.SortOrder=Enum.SortOrder.LayoutOrder
 local tabPad=Instance.new("UIPadding",tabBar)
 tabPad.PaddingTop=UDim.new(0,10)
 local content=Instance.new("Frame")
-content.Size=UDim2.new(1,-180,0,200)
+content.Size=UDim2.new(1,-180,0,255)
 content.Position=UDim2.new(0,168,0,60)
 content.BackgroundColor3=WHITE
 content.BackgroundTransparency=0.15
@@ -1641,7 +1639,7 @@ content.Parent=panel
 Instance.new("UICorner",content).CornerRadius=UDim.new(0,12)
 local themeFrame=Instance.new("Frame")
 themeFrame.Size=UDim2.new(1,-24,0,140)
-themeFrame.Position=UDim2.new(0,12,1,-150)
+themeFrame.Position=UDim2.new(0,12,1,-155)
 themeFrame.BackgroundColor3=WHITE
 themeFrame.BackgroundTransparency=0.15
 themeFrame.BorderSizePixel=0
@@ -1673,12 +1671,12 @@ local pages={}
 local themeButtons={}
 local function createTabButton(name,order)
 local btn=Instance.new("TextButton")
-btn.Size=UDim2.new(1,-16,0,34)
+btn.Size=UDim2.new(1,-16,0,36)
 btn.BackgroundColor3=WHITE
 btn.BackgroundTransparency=0.4
 btn.Text=name
 btn.Font=Enum.Font.GothamBold
-btn.TextSize=12
+btn.TextSize=11
 btn.TextColor3=TEXT_DARK
 btn.AutoButtonColor=false
 btn.LayoutOrder=order
@@ -1770,7 +1768,7 @@ buildPage("Coil Gears ♡","Coil Gears ♡","Sonic Coils with Rainbow Gravity �
 buildPage("Magic Carpet ♡","Magic Carpet ♡","Flying magic carpet ♡","magicCarpet",3)
 buildPage("Kudo Fake Bomb ♡","Kudo Fake Bomb ♡","Fake bombs that launch you up ♡","kudoFakeBomb",4)
 buildPage("Recolor Scope ♡","Recolor Scope ♡","Gun Customizer (antonmvtwin) ♡","recolorScope",5)
-buildPage("Sunset Carpet ♡","Sunset Carpet ♡","Sunset gradient carpet + white trail ♡","sunsetCarpet",6)
+buildPage("Golden Carpet ♡","Golden Carpet ♡","Golden carpet + white trail ♡","sunsetCarpet",6)
 buildPage("Dark Pegasus ♡","Dark Pegasus ♡","Dark Pegasus fly script ♡","darkPegasus",7)
 pages["Water Bow ♡"].page.Visible=true
 pages["Water Bow ♡"].btn.BackgroundTransparency=0
